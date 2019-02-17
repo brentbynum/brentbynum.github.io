@@ -1,0 +1,15 @@
+
+.container {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.button-column {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+}
+
+.display-column {
+    width: calc(100% - 180px);
+}
