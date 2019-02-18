@@ -82,6 +82,12 @@ class Paddle {
 
         this.upButton.addEventListener('mouseup', this.accelRelease.bind(this));
         this.downButton.addEventListener('mouseup', this.accelRelease.bind(this));
+
+        this.upButton.addEventListener('touchstart', this.accelUp.bind(this));
+        this.downButton.addEventListener('touchstart', this.accelDown.bind(this));
+
+        this.upButton.addEventListener('touchend', this.accelRelease.bind(this));
+        this.downButton.addEventListener('touchend', this.accelRelease.bind(this));
     }
 
     update(delta) {
@@ -116,6 +122,11 @@ class Paddle {
         }
         this.pos.y = screenSize.height / 2;
         this.screenSize = screenSize;
+    }
+
+    reset() {
+        this.pos.y = this.screenSize.height / 2;
+        this.velocity.y = 0;
     }
 
     accelUp() {
@@ -170,6 +181,8 @@ class Ball {
             // One point for right
             this.pos = new Point(this.screenSize.width / 2, this.screenSize.height/2);
             this.velocity = this.roller.randomDirection();
+            this.leftPaddle.reset();
+            this.rightPaddle.reset();
         }
 
         // Check for scoring condition on the right side 
@@ -177,6 +190,8 @@ class Ball {
             // one point for left
             this.pos = new Point(this.screenSize.width / 2, this.screenSize.height/2);
             this.velocity = this.roller.randomDirection();
+            this.leftPaddle.reset();
+            this.rightPaddle.reset();
         }
     }
 
