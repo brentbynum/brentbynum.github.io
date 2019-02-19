@@ -1,5 +1,9 @@
 
-.container {
+body {
+    background-color: #007bff;
+}
+
+.column-container {
     display: flex;
     flex-flow: row nowrap;
 }
@@ -11,5 +15,5 @@
 }
 
 .display-column {
-    width: calc(100% - 180px);
+    width: calc(100% - 200px);
 }

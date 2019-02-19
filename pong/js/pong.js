@@ -67,6 +67,7 @@ class Roller {
 class Paddle {
     // Creates a paddle
     constructor(screenSize, side) {
+        this.friction = 0.975;
         this.pos = new Point(0, 0);
         this.velocity = new Point(0, 0);
         this.accel = new Point(0, 0);
@@ -92,8 +93,14 @@ class Paddle {
 
     update(delta) {
         const factor = delta/1000;
-        this.velocity.x += this.accel.x * factor;
-        this.velocity.y += this.accel.y * factor;
+        
+        if (this.accel.y) {
+            this.velocity.x += this.accel.x * factor;
+            this.velocity.y += this.accel.y * factor;
+        } else {
+            this.velocity.x *= this.friction;
+            this.velocity.y *= this.friction;
+        }
         this.pos.x += (this.velocity.x * factor);
         this.pos.y += (this.velocity.y * factor);
 
@@ -101,7 +108,6 @@ class Paddle {
             this.pos.y = 0;
             this.velocity.y *= -1;
         }
-
 
         if (this.pos.y > this.screenSize.height) {
             this.pos.y = this.screenSize.height;
