@@ -60,7 +60,7 @@ class Roller {
     }
 
     randomDirection() {
-        return new Point(this.between(60, 80), this.between(10, 30));
+        return new Point(this.between(200, 320), this.between(20, 40));
     }
 }
 
@@ -165,21 +165,21 @@ class Ball {
 
         // bounce off the top
         if (this.pos.y < 0 && this.velocity.y < 0) {
-            this.velocity.y = -(this.velocity.y * 2);
+            this.velocity.y = -(this.velocity.y * 1.5);
         }
         // bounce off the bottom
         if (this.pos.y > this.screenSize.height && this.velocity.y > 0) {
-            this.velocity.y = -(this.velocity.y * 2);
+            this.velocity.y = -(this.velocity.y * 1.5);
         }
 
         // bounce off the left paddle
         if (this.pos.x < this.leftPaddle.pos.x && (this.pos.y > this.leftPaddle.pos.y - 40 && this.pos.y < this.leftPaddle.pos.y + 40)) {
-            this.velocity.x = -(this.velocity.x * 2);
+            this.velocity.x = -(this.velocity.x * 1.5);
         }
 
         // bounce off the right paddle
         if (this.pos.x > this.rightPaddle.pos.x && (this.pos.y > this.rightPaddle.pos.y - 40 && this.pos.y < this.rightPaddle.pos.y + 40)) {
-            this.velocity.x = -(this.velocity.x * 2);
+            this.velocity.x = -(this.velocity.x * 1.5);
         }
 
         // Check for scoring condition on the left side 

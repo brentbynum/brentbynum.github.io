@@ -2,7 +2,9 @@
 body {
     background-color: #007bff;
 }
-
+button {
+    margin: 10px;
+}
 .column-container {
     display: flex;
     flex-flow: row nowrap;
@@ -15,5 +17,5 @@ body {
 }
 
 .display-column {
-    width: calc(100% - 200px);
+    width: calc(100% - 180px);
 }
