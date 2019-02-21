@@ -60,14 +60,14 @@ class Roller {
     }
 
     randomDirection() {
-        return new Point(this.between(200, 320), this.between(20, 40));
+        return new Point(this.between(150, 250), this.between(20, 40));
     }
 }
 
 class Paddle {
     // Creates a paddle
     constructor(screenSize, side) {
-        this.friction = 0.975;
+        this.friction = 0.95;
         this.pos = new Point(0, 0);
         this.velocity = new Point(0, 0);
         this.accel = new Point(0, 0);
